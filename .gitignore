@@ -1,1 +1,8 @@
+# env file
 .env
+
+# tmp directory
+tmp
+
+# node modules
+node_modules
