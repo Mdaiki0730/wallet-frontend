@@ -7,4 +7,4 @@ COPY . .
 RUN apk update && \
   apk add git vim
 
-#RUN yarn add
+RUN yarn add

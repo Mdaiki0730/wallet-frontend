@@ -1,8 +1,13 @@
 import React from "react";
 
 const App = () => {
+  const test = process.env.TEST
+  console.log(test)
   return (
-    <div>hello</div>
+    <>
+      <div>garian</div>
+      <div>hello</div>
+    </>
   )
 }
 
