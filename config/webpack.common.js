@@ -25,6 +25,14 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
     ],
   },
   plugins: [
@@ -41,7 +49,10 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx"],
     alias: {
+      "Assets": path.resolve(__dirname, "../src/assets"),
       "Components": path.resolve(__dirname, "../src/components"),
+      "Router": path.resolve(__dirname, "../src/router"),
+      "Pages": path.resolve(__dirname, "../src/pages"),
     }
   },
   output: {

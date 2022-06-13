@@ -124,6 +124,9 @@ module.exports = {
     // require space before/after arrow function's arrow
     // https://eslint.org/docs/rules/arrow-spacing
     "arrow-spacing": ["error", { before: true, after: true }],
+
+    // prop-type
+    "react/prop-types": ["off"]
   },
   "reportUnusedDisableDirectives": true
 };
