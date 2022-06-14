@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
-import { Stack } from "@mui/material"
+import Stack from "@mui/material/Stack"
 
 import LoginPage from "Pages/Login"
 import WalletPage from "Pages/Wallet"
