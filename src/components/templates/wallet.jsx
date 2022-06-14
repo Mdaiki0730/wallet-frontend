@@ -5,10 +5,10 @@ import AssetDetail from "Components/organisms/AssetDetail"
 import WalletDetail from "Components/organisms/WalletDetail"
 import WalletCreate from "Components/organisms/WalletCreate"
 
-const WalletTemplate = ({ hasWallet }) => {
+const WalletTemplate = ({ hasWallet, onClickLogout }) => {
   return (
     <div>
-      <Header />
+      <Header onClickLogout={() => onClickLogout()} />
       {hasWallet ?
         <div>
           <AssetDetail />

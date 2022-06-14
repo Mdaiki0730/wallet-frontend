@@ -13,7 +13,7 @@ const CustomTypography = styled(Typography)(() => ({
   flexGrow: 1
 }));
 
-const Header = () => {
+const Header = ({ onClickLogout }) => {
   return (
     <DivPrimary>
       <AppBar position="static">
@@ -21,7 +21,7 @@ const Header = () => {
           <CustomTypography variant="h6">
             GariCoinWallet
           </CustomTypography>
-          <Button color="inherit">Logout</Button>
+          <Button color="inherit" onClick={() => {onClickLogout({ returnTo: window.location.origin })}}>Logout</Button>
         </Toolbar>
       </AppBar>
     </DivPrimary>
