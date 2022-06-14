@@ -5,6 +5,8 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
+import { LOGOUT, TITLE } from "Constants/content"
+
 const DivPrimary = styled("div")(() => ({
   flexGrow: 1
 }));
@@ -18,10 +20,8 @@ const Header = ({ onClickLogout }) => {
     <DivPrimary>
       <AppBar position="static">
         <Toolbar>
-          <CustomTypography variant="h6">
-            GariCoinWallet
-          </CustomTypography>
-          <Button color="inherit" onClick={() => {onClickLogout({ returnTo: window.location.origin })}}>Logout</Button>
+          <CustomTypography variant="h6">{TITLE}</CustomTypography>
+          <Button color="inherit" onClick={() => {onClickLogout()}}>{LOGOUT}</Button>
         </Toolbar>
       </AppBar>
     </DivPrimary>
