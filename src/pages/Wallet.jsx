@@ -26,7 +26,6 @@ const WalletPage = () => {
       const body = await response.json()
       setHasWallet(true);
       setWallet(body)
-      console.log(body)
     };
     getWallet();
   }, []);

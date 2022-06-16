@@ -21,7 +21,7 @@ const CustomPaper = styled(Paper)(() => ({
   p: 2,
   display: "flex",
   flexDirection: "column",
-  height: 240
+  height: 500
 }));
 
 

@@ -20,10 +20,10 @@ const CustomPaper = styled(Paper)(() => ({
   p: 2,
   display: "flex",
   flexDirection: "column",
-  height: "100%"
+  height: 500
 }));
 
-const WalletCreate = ({ createWallet }) => {
+const WalletCreate = () => {
   return (
     <MainBox component="main">
       <Toolbar />
@@ -31,7 +31,7 @@ const WalletCreate = ({ createWallet }) => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={12}>
             <CustomPaper>
-              <WalletCreateMolecule createWallet={() => createWallet()} />
+              <WalletCreateMolecule />
             </CustomPaper>
           </Grid>
         </Grid>
