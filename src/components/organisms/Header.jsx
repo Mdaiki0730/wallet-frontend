@@ -4,6 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import { useAuth0 } from "@auth0/auth0-react"
 
 import { LOGOUT, TITLE } from "Constants/content"
 
@@ -11,7 +12,8 @@ const CustomTypography = styled(Typography)(() => ({
   flexGrow: 1
 }));
 
-const Header = ({ logout }) => {
+const Header = () => {
+  const { logout } = useAuth0()
   return (
     <AppBar position="absolute">
       <Toolbar>

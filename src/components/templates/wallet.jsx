@@ -5,17 +5,17 @@ import Header from "Components/organisms/Header"
 import WalletDetail from "Components/organisms/WalletDetail"
 import WalletCreate from "Components/organisms/WalletCreate"
 
-const WalletTemplate = ({ hasWallet, wallet, logout, createWallet, deleteWallet }) => {
+const WalletTemplate = ({ hasWallet, wallet }) => {
   return (
     <Box sx={{ display: "flex" }}>
-      <Header logout={() => logout()} />
+      <Header />
       {hasWallet ?
         <>
-          <WalletDetail wallet={wallet} deleteWallet={() => deleteWallet()} />
+          <WalletDetail wallet={wallet} />
         </>
       :
         <>
-          <WalletCreate createWallet={() => createWallet()} />
+          <WalletCreate />
         </>
       }
     </Box>
