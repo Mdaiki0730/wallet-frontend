@@ -6,3 +6,6 @@ tmp
 
 # node modules
 node_modules
+
+# build files
+dist
