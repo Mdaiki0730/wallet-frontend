@@ -7,7 +7,7 @@ import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid"
 import Paper from "@mui/material/Paper"
 
-import Deposits from "Components/molecules/Deposits"
+import WalletCreateMolecule from "Components/molecules/WalletCreateMolecule"
 
 const MainBox = styled(Box)(() => ({
   backgroundColor: grey[100],
@@ -31,7 +31,7 @@ const WalletCreate = ({ createWallet }) => {
         <Grid container spacing={3}>
           <Grid item xs={12} md={12} lg={12}>
             <CustomPaper>
-              <Deposits createWallet={() => createWallet()} />
+              <WalletCreateMolecule createWallet={() => createWallet()} />
             </CustomPaper>
           </Grid>
         </Grid>

@@ -7,6 +7,8 @@ import Container from "@mui/material/Container"
 import Grid from "@mui/material/Grid"
 import Paper from "@mui/material/Paper"
 
+import WalletInfo from "Components/molecules/WalletInfo"
+
 const MainBox = styled(Box)(() => ({
   backgroundColor: grey[100],
   flexGrow: 1,
@@ -22,7 +24,7 @@ const CustomPaper = styled(Paper)(() => ({
 }));
 
 
-const WalletDetail = () => {
+const WalletDetail = ({ wallet, deleteWallet }) => {
   return (
     <MainBox component="main">
       <Toolbar />
@@ -31,6 +33,7 @@ const WalletDetail = () => {
           {/* Chart */}
           <Grid item xs={12} md={8} lg={9}>
             <CustomPaper>
+              <WalletInfo wallet={wallet} deleteWallet={() => deleteWallet()} />
             </CustomPaper>
           </Grid>
           {/* Recent Deposits */}

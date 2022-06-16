@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 
 import Title from "Components/atoms/Title";
 
-const Deposits = ({ createWallet }) => {
+const WalletCreateMolecule = ({ createWallet }) => {
   return (
     <>
       <Title>Please Create Your Wallet</Title>
@@ -12,4 +12,4 @@ const Deposits = ({ createWallet }) => {
   );
 }
 
-export default Deposits
+export default WalletCreateMolecule

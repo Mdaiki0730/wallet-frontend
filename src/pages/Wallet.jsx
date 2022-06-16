@@ -21,12 +21,12 @@ const WalletPage = () => {
       })
       if (!response.ok) {
         setHasWallet(false);
-        console.log(hasWallet)
         throw new Error(response.statusText)
       }
       const body = await response.json()
       setHasWallet(true);
       setWallet(body)
+      console.log(body)
     };
     getWallet();
   }, []);
