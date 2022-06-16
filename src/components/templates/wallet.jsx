@@ -1,25 +1,26 @@
 import React from "react"
+import Box from "@mui/material/Box"
 
 import Header from "Components/organisms/Header"
 import AssetDetail from "Components/organisms/AssetDetail"
 import WalletDetail from "Components/organisms/WalletDetail"
 import WalletCreate from "Components/organisms/WalletCreate"
 
-const WalletTemplate = ({ hasWallet, onClickLogout }) => {
+const WalletTemplate = ({ hasWallet, logout, createWallet }) => {
   return (
-    <div>
-      <Header onClickLogout={() => onClickLogout()} />
+    <Box sx={{ display: "flex" }}>
+      <Header logout={() => logout()} />
       {hasWallet ?
-        <div>
+        <>
           <AssetDetail />
           <WalletDetail />
-        </div>
+        </>
       :
-        <div>
-          <WalletCreate />
-        </div>
+        <>
+          <WalletCreate createWallet={() => createWallet()} />
+        </>
       }
-    </div>
+    </Box>
   )
 }
 

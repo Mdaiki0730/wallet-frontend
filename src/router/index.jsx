@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import { useAuth0 } from "@auth0/auth0-react"
 import Stack from "@mui/material/Stack"
+import CircularProgress from "@mui/material/CircularProgress"
 
 import LoginPage from "Pages/Login"
 import WalletPage from "Pages/Wallet"
-import gif from "Assets/infinite-gif-preloader.gif"
 
 const NoMatch = () => {
   const { isAuthenticated } = useAuth0()
@@ -40,7 +40,7 @@ const Loading = () => (
     spacing={2}
     marginTop={30}
   >
-    <img src={gif} alt="loading..." />
+    <CircularProgress />
   </Stack>
 )
 

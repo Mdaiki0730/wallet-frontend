@@ -1,12 +1,42 @@
 import React from "react"
+import { styled } from "@mui/material/styles";
+import { grey } from "@mui/material/colors";
+import Box from "@mui/material/Box"
+import Toolbar from "@mui/material/Toolbar"
+import Container from "@mui/material/Container"
+import Grid from "@mui/material/Grid"
+import Paper from "@mui/material/Paper"
 
+import Deposits from "Components/molecules/Deposits"
 
+const MainBox = styled(Box)(() => ({
+  backgroundColor: grey[100],
+  flexGrow: 1,
+  height: "100vh",
+  overflow: "auto"
+}));
 
-const WalletCreate = () => {
+const CustomPaper = styled(Paper)(() => ({
+  p: 2,
+  display: "flex",
+  flexDirection: "column",
+  height: "100%"
+}));
+
+const WalletCreate = ({ createWallet }) => {
   return (
-    <div>
-      create
-    </div>
+    <MainBox component="main">
+      <Toolbar />
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={12} lg={12}>
+            <CustomPaper>
+              <Deposits createWallet={() => createWallet()} />
+            </CustomPaper>
+          </Grid>
+        </Grid>
+      </Container>
+    </MainBox>
   )
 }
 

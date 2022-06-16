@@ -7,24 +7,18 @@ import Button from "@mui/material/Button";
 
 import { LOGOUT, TITLE } from "Constants/content"
 
-const DivPrimary = styled("div")(() => ({
-  flexGrow: 1
-}));
-
 const CustomTypography = styled(Typography)(() => ({
   flexGrow: 1
 }));
 
-const Header = ({ onClickLogout }) => {
+const Header = ({ logout }) => {
   return (
-    <DivPrimary>
-      <AppBar position="static">
-        <Toolbar>
-          <CustomTypography variant="h6">{TITLE}</CustomTypography>
-          <Button color="inherit" onClick={() => {onClickLogout()}}>{LOGOUT}</Button>
-        </Toolbar>
-      </AppBar>
-    </DivPrimary>
+    <AppBar position="absolute">
+      <Toolbar>
+        <CustomTypography component="h1" variant="h6" color="inherit" noWrap>{TITLE}</CustomTypography>
+        <Button color="inherit" onClick={() => {logout()}}>{LOGOUT}</Button>
+      </Toolbar>
+    </AppBar>
   );
 }
 
