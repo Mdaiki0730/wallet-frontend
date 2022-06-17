@@ -12,6 +12,11 @@ const WalletInfo = ({ wallet }) => {
 
   const { getAccessTokenSilently } = useAuth0()
   const deleteWallet = async () => {
+    let confirm_result = confirm("you'll lost all of your assets, do you really want to delete it?");
+    if (confirm_result !== true) {
+      alert("Canceled")
+      return
+    }
     const token = await getAccessTokenSilently()
     const response = await fetch(`${process.env.WALLET_API_DOMAIN}/v1/wallets`, {
       method: "DELETE",
@@ -23,6 +28,8 @@ const WalletInfo = ({ wallet }) => {
     if (!response.ok) {
       throw new Error(response.statusText)
     }
+    alert("complete delete wallet");
+    window.location.reload()
   }
   return (
     <>

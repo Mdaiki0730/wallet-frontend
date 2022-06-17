@@ -19,6 +19,8 @@ const WalletCreateMolecule = () => {
     if (!response.ok) {
       throw new Error(response.statusText)
     }
+    alert("complete create wallet");
+    window.location.reload()
   }
   return (
     <>

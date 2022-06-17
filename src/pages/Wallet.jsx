@@ -11,7 +11,6 @@ const WalletPage = () => {
   useEffect(() => {
     const getWallet = async () => {
       const token = await getAccessTokenSilently()
-      console.log(`${process.env.WALLET_API_DOMAIN}/v1/wallets`)
       const response = await fetch(`${process.env.WALLET_API_DOMAIN}/v1/wallets`, {
         method: "GET",
         headers: {
@@ -20,14 +19,13 @@ const WalletPage = () => {
         }
       })
       if (!response.ok) {
-        setHasWallet(false);
-        throw new Error(response.statusText)
+        throw new Error(response.json())
       }
       const body = await response.json()
       setHasWallet(true);
       setWallet(body)
     };
-    getWallet();
+    getWallet().catch(() => setHasWallet(false))
   }, []);
 
   return (

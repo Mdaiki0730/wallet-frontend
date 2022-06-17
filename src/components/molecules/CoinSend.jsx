@@ -13,6 +13,12 @@ const CoinSend = () => {
   const sendCoin = async (blockchainAddress, value) => {
     const parsedValue = parseFloat(value)
     if (isNaN(parsedValue)) {
+      alert("please enter value")
+      return
+    }
+    let confirm_result = confirm(`Are you sure you want to send ${value}G to ${blockchainAddress}?`);
+    if (confirm_result !== true) {
+      alert("Canceled")
       return
     }
     const token = await getAccessTokenSilently()
@@ -25,8 +31,11 @@ const CoinSend = () => {
       body: JSON.stringify({"recipient_blockchain_address":String(blockchainAddress), "value":parsedValue})
     })
     if (!response.ok) {
+      alert("failed to send")
       throw new Error(response.statusText)
     }
+    alert("complete send. *It will take some time to reflect")
+    window.location.reload()
   }
 
   return (

@@ -50,9 +50,9 @@ jobs:
           cmd: install
 
       - name: Build
-        shell: bash
-        run: |
-          yarn build
+        uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build
 
       - name: Deploy
         env:
