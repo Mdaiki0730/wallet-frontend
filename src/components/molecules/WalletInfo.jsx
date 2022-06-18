@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
 import Title from "Components/atoms/Title";
+import CustomDialog from "Components/atoms/CustomDialog";
 
 import { useAuth0 } from "@auth0/auth0-react"
 const WalletInfo = ({ wallet }) => {
@@ -13,12 +14,16 @@ const WalletInfo = ({ wallet }) => {
   }
 
   const { getAccessTokenSilently } = useAuth0()
+  const [ open, setOpen ] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true)
+  }
+  const handleClose = () => {
+    setOpen(false)
+  }
+
   const deleteWallet = async () => {
-    let confirm_result = confirm("you'll lost all of your assets, do you really want to delete it?");
-    if (confirm_result !== true) {
-      alert("Canceled")
-      return
-    }
     const token = await getAccessTokenSilently()
     const response = await fetch(`${process.env.WALLET_API_DOMAIN}/v1/wallets`, {
       method: "DELETE",
@@ -30,7 +35,6 @@ const WalletInfo = ({ wallet }) => {
     if (!response.ok) {
       throw new Error(response.statusText)
     }
-    alert("complete delete wallet");
     window.location.reload()
   }
   return (
@@ -50,9 +54,16 @@ const WalletInfo = ({ wallet }) => {
           </Typography>
         </Grid>
         <Grid sx={{ height: "20%", textAlign: "center" }}>
-          <Button color="secondary" variant="contained" onClick={() => deleteWallet()}>delete wallet</Button>
+          <Button color="secondary" variant="contained" onClick={handleClickOpen}>delete wallet</Button>
         </Grid>
       </Container>
+      <CustomDialog
+        open={open}
+        handleClose={handleClose}
+        title={"This operation cannot be undone"}
+        content={"You'll lost all of your assets, do you really want to delete it?"}
+        onClickOK={deleteWallet}
+      />
     </>
   );
 }
