@@ -1,6 +1,8 @@
 import React from "react";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 import Title from "Components/atoms/Title";
 
@@ -33,14 +35,24 @@ const WalletInfo = ({ wallet }) => {
   }
   return (
     <>
-      <Title>My Wallet</Title>
-      <Typography component="p" variant="h4">
-        {`${wallet.value}G`}
-      </Typography>
-      <Typography color="text.secondary" sx={{ flex: 1 }}>
-        {wallet.blockchain_address}
-      </Typography>
-      <Button color="primary" onClick={() => deleteWallet()}>delete wallet</Button>
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4, height: "100%" }}>
+        <Grid sx={{ height: "20%" }}>
+          <Title>My Wallet</Title>
+        </Grid>
+        <Grid sx={{ height: "30%" }}>
+          <Typography color="text.secondary">
+            address: {wallet.blockchain_address}
+          </Typography>
+        </Grid>
+        <Grid sx={{ height: "30%", textAlign: "center" }}>
+          <Typography component="p" variant="h4">
+            {`${wallet.value}G`}
+          </Typography>
+        </Grid>
+        <Grid sx={{ height: "20%", textAlign: "center" }}>
+          <Button color="primary" variant="contained" onClick={() => deleteWallet()}>delete wallet</Button>
+        </Grid>
+      </Container>
     </>
   );
 }

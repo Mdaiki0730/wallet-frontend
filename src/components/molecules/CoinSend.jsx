@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 import { useAuth0 } from "@auth0/auth0-react"
 
 import Title from "Components/atoms/Title";
@@ -40,10 +42,32 @@ const CoinSend = () => {
 
   return (
     <>
-      <Title>Send Coin</Title>
-      <TextField id="filled-basic" label="BlockchainAddress" variant="filled" onChange={(e) => setBlockchainAddress(e.target.value)} />
-      <TextField id="filled-basic" label="Value" variant="filled" onChange={(e) => setValue(e.target.value)} />
-      <Button color="primary" onClick={() => sendCoin(blockchainAddress, value)}>send</Button>
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 4, height: "100%" }}>
+        <Grid sx={{ height: "20%" }}>
+          <Title>Send Coin</Title>
+        </Grid>
+        <Grid sx={{ height: "30%", textAlign: "center" }}>
+          <TextField
+            id="filled-basic"
+            label="BlockchainAddress"
+            variant="filled"
+            onChange={(e) => setBlockchainAddress(e.target.value)}
+            sx={{ width: "100%" }}
+          />
+        </Grid>
+        <Grid sx={{ height: "30%", textAlign: "center" }}>
+          <TextField
+            id="filled-basic"
+            label="Value"
+            variant="filled"
+            onChange={(e) => setValue(e.target.value)}
+            sx={{ width: "100%" }}
+          />
+        </Grid>
+        <Grid sx={{ height: "20%", textAlign: "center" }}>
+          <Button color="primary" variant="contained" onClick={() => sendCoin(blockchainAddress, value)}>send</Button>
+        </Grid>
+      </Container>
     </>
   );
 }
