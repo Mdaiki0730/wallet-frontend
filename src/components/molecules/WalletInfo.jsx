@@ -50,7 +50,7 @@ const WalletInfo = ({ wallet }) => {
           </Typography>
         </Grid>
         <Grid sx={{ height: "20%", textAlign: "center" }}>
-          <Button color="primary" variant="contained" onClick={() => deleteWallet()}>delete wallet</Button>
+          <Button color="secondary" variant="contained" onClick={() => deleteWallet()}>delete wallet</Button>
         </Grid>
       </Container>
     </>
